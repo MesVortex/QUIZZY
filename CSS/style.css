@@ -1,0 +1,20 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+p,
+a{
+  margin-top: 0;
+  margin-bottom: 0;
+  text-decoration: none !important;
+}
+
+.logo-box{
+  width: 7rem;
+  height: auto;
+}
+
+.logo{
+  width: 100%;
+}
