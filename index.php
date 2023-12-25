@@ -7,21 +7,34 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <title>QUIZZY</title>
 </head>
-<body>
-  <header class="navbar bg-body-tertiary shadow border-bottom">
+<body class="bg-primary">
+  <header class="navbar bg-body-tertiary shadow border-bottom rounded-bottom-4">
     <div class="mx-auto | logo-box">
       <a class="navbar-brand" href="#">
-        <img src="./images/Quizzy_Logo.png" class="logo" alt="">
+        <img src="./images/Quizzy_Logo.png" style="width: 5.5rem;" class="logo" alt="">
       </a>
     </div>
   </header>
-  <section>
-    <h1 class="text-center mt-4">WELCOME TO <span class="text-primary">QUIZZY</span></h1>
+  <section class="border rounded-pill shadow-lg w-75 mx-auto mt-5 py-5 bg-body-tertiary">
+    <h1 class="text-center">WELCOME TO <span class="text-primary">QUIZZY</span></h1>
     <p class="text-center">Ready To <span class="text-primary">Test</span> Your Knowledge?</p>
-    <form class="flex-column w-50 mx-auto mt-5" action="">
+    <form class="flex-column w-50 mx-auto mt-5" method="post" action="./view/quizz.php">
       <div class="form-floating mb-3">
-        <input type="text" name="Pseudonyme" class="form-control" id="floatingInput" placeholder="">
+      <?php
+      if(isset($_GET['error'])){
+        $ERR = $_GET['error'];
+        echo 
+        '<input type="text" name="Pseudonyme" class="form-control is-invalid" id="floatingInput" placeholder="">
         <label for="floatingInput">Enter Your NickName</label>
+        <div class="invalid-feedback">
+          '.$ERR.'
+        </div>';
+      }else{
+        echo 
+        '<input type="text" name="Pseudonyme" class="form-control" id="floatingInput" placeholder="">
+        <label for="floatingInput">Enter Your NickName</label>';
+      }
+      ?>
       </div>
       <div class="text-end">
         <button class="btn btn-primary px-5">Play!</button>
@@ -29,7 +42,7 @@
     </form>
   </section>
   <div class="my-5">
-    <p class="text-center text-danger fw-bold">Before You Start, You Must know:</p>
+    <p class="text-center fw-bold">Before You Start, You Must know:</p>
   </div>
   <section class="mt-5 d-flex justify-content-between flex-wrap gap-5">
     <div class="accordion w-25 mx-5" id="Rule1">
