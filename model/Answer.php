@@ -25,6 +25,29 @@ class Answer{
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
   }
+
+  public function getCorrectAnswer($answerID){
+    $query = "SELECT * 
+              FROM answers as a 
+              WHERE questionID = (SELECT questionID FROM answers as a WHERE a.answerID = :answerID)
+              AND a.status = 1";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->bindParam(":answerID", $answerID);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+  }
+
+  public function getAnswer($answerID){
+    $query = "SELECT * 
+              FROM answers as a 
+              WHERE a.answerID = :answerID";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->bindParam(":answerID", $answerID);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+  }
   
   // SETTERS
 

@@ -16,6 +16,11 @@
     </div>
   </header>
   <section class="border rounded-pill shadow-lg w-75 mx-auto mt-5 py-5 bg-body-tertiary">
+    <div class="carousel-indicators">
+      <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></div>
+      <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></div>
+      <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></div>
+    </div>
     <h1 class="text-center">WELCOME TO <span class="text-primary">QUIZZY</span></h1>
     <p class="text-center">Ready To <span class="text-primary">Test</span> Your Knowledge?</p>
     <form class="flex-column w-50 mx-auto mt-5" method="post" action="./view/quizz.php">

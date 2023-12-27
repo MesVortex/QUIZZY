@@ -21,4 +21,13 @@ class QuestionControl extends Question{
     $firstQuestion->setThemeID($DbQuestion['themeID']);
     return $firstQuestion;
   }
+
+  public function getQuestion($questionID){
+    $DbQuestion = $this->getQuestionByID($questionID);
+    $Question = new Question;
+    $Question->setID($DbQuestion['questionID']);
+    $Question->setContent($DbQuestion['questionContent']);
+    $Question->setThemeID($DbQuestion['themeID']);
+    return $Question;
+  }
 }

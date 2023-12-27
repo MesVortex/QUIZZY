@@ -35,6 +35,17 @@ class Question{
     return $result;
   }
 
+  public function getQuestionByID($questionID){
+    $query = "SELECT * 
+              FROM questions as q 
+              WHERE q.questionID = :questionID";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->bindParam(":questionID", $questionID);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+  }
+
   // SETTERS
 
   public function setID($newQuestionID){

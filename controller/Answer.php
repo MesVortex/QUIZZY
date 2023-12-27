@@ -20,4 +20,26 @@ class AnswerControl extends Answer{
     return $Answers;
   }
 
+  public function getCorrectAnswerByID($questionID){
+    $DbAnswers = $this->getCorrectAnswer($questionID);
+    $Answers = new Answer;
+    $Answers->setID($DbAnswers['answerID']);
+    $Answers->setContent($DbAnswers['answerContent']);
+    $Answers->setQuestionID($DbAnswers['questionID']);
+    $Answers->setStatus($DbAnswers['status']);
+    $Answers->setExplanation($DbAnswers['explanation']);
+    return $Answers;
+  }
+
+  public function getAnswerByID($questionID){
+    $DbAnswers = $this->getAnswer($questionID);
+    $Answer = new Answer;
+    $Answer->setID($DbAnswers['answerID']);
+    $Answer->setContent($DbAnswers['answerContent']);
+    $Answer->setQuestionID($DbAnswers['questionID']);
+    $Answer->setStatus($DbAnswers['status']);
+    $Answer->setExplanation($DbAnswers['explanation']);
+    return $Answer;
+  }
+
 }
