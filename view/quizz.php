@@ -40,6 +40,9 @@ $AnswersObj = new AnswerControl();
   </section>
 
   <section id="questionContent" class="d-none">
+    <div class="progress | border" role="progressbar" aria-label="Animated striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 10%"></div>
+    </div>
     <div class="alert alert-primary w-75 mx-auto mt-5" role="alert">
       <?php
       $Question = $QuestionsObj->getStartQuestion();
@@ -54,7 +57,7 @@ $AnswersObj = new AnswerControl();
         foreach($answers as $answer){
         ?>
         <div class="col">      
-          <input type="radio" onclick="displayNext();" class="btn-check" value="<?php echo $answer->getID(); ?>" name="vbtn-radio" id="vbtn-radio<?php echo $answer->getID(); ?>">
+          <input type="radio" onclick="nextQuestion(<?php echo $answer->getID(); ?>);" value="<?php echo $answer->getStatus(); ?>" class="btn-check answer" name="vbtn-radio" id="vbtn-radio<?php echo $answer->getID(); ?>">
           <label class="btn btn-outline-primary py-3 mt-5 w-100" for="vbtn-radio<?php echo $answer->getID(); ?>"><?php echo $answer->getContent(); ?></label>
         </div>
         <?php
